@@ -1,6 +1,8 @@
 import express from 'express';
-import { extractRepositoryInfo } from '../utils/github.util.js';
+import { analyseRepo } from '../controllers/repository.controller.js';
 
 const repoRouter = express.Router();
 
-repoRouter.post('/analyse',)
+repoRouter.post('/analyse',analyseRepo);
+
+export default repoRouter;
