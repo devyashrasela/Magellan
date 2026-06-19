@@ -1,14 +1,16 @@
 import express from 'express';
 import { 
-    analyseRepo,
+    getRepoMetadata,
     getRepoReadme,
     getRepoTree,
-    getFileContent
+    getFileContent,
+    analyzeRepository
 } from '../controllers/repository.controller.js';
 
 const repoRouter = express.Router();
 
-repoRouter.post('/analyse',analyseRepo);
+repoRouter.post('/analyse',analyzeRepository);
+repoRouter.get('/matadata',getRepoMetadata);
 repoRouter.get('/readme',getRepoReadme);
 repoRouter.get('/repotree',getRepoTree);
 repoRouter.get('/fileContent',getFileContent);
