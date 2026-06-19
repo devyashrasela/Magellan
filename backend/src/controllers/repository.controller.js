@@ -6,7 +6,7 @@ import { getReadme } from "../github/readme.js";
 import { getRepositoryTree } from "../github/repotree.js";
 import { fileContent } from "../github/fileContent.js";
 
-const analyseRepo = async (req,res) => {
+export const analyseRepo = async (req,res) => {
     try{
         const repoUrl = req.body.url;
         const {owner,repo} = extractRepositoryInfo(repoUrl);
@@ -24,7 +24,7 @@ const analyseRepo = async (req,res) => {
     }
 }
 
-const getRepoReadme = async (req,res) => {
+export const getRepoReadme = async (req,res) => {
     try {
         const repoUrl = req.body.url;
         const {owner,repo} = extractRepositoryInfo(repoUrl);
@@ -42,7 +42,7 @@ const getRepoReadme = async (req,res) => {
     }
 }
 
-const getRepoTree = async (req,res) => {
+export const getRepoTree = async (req,res) => {
     try{
         const repoUrl = req.body.url;
         const {owner,repo} = extractRepositoryInfo(repoUrl);
@@ -61,7 +61,7 @@ const getRepoTree = async (req,res) => {
     }
 }
 
-const getFileContent = async (req,res) => {
+export const getFileContent = async (req,res) => {
     try{
         const repoUrl = req.body.url;
         const {owner,repo} = extractRepositoryInfo(repoUrl);
@@ -83,11 +83,4 @@ const getFileContent = async (req,res) => {
             message: err.message
         })
     }
-}
-
-export {
-    analyseRepo,
-    getRepoReadme,
-    getRepoTree,
-    getFileContent
 }
