@@ -1,4 +1,5 @@
 import { getGoogleModel } from "./providers/google.js";
+import { getGroqModel } from "./providers/groq.js";
 
 export const getModel = (
     provider,
@@ -9,6 +10,9 @@ export const getModel = (
 
         case "gemini":
             return getGoogleModel(model);
+
+        case "groq":
+            return getGroqModel(model);
 
         default:
             throw new Error(
